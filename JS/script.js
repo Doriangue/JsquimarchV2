@@ -264,6 +264,7 @@ var filtre = function(x) {
       moviesContainer[i].style.display = "none";
     }
     moviesContainer[x].style.display = "";
+    moviesContainer[x].scrollIntoView();
   });
 
 };
