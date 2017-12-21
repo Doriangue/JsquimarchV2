@@ -31,6 +31,7 @@ var playerFonction = function(i) {
     '<h6 class="stick3"></h6>' +
     '<h6 class="stick4"></h6>' +
     '<h6 class="stick5"></h6>' +
+    '<h6 class="stick6"></h6>' +
     '</span>' + '<div id="progressBarControl"><div id="progressBar"></div>' + '<button id="fullscreenbtn">[&nbsp;&nbsp;]</button>' + '</div><span id="progressTime">00:00</span>' + '</div> <div class="describContainer"> <h4 class="describTitle">' + data.films[i].title + '<p class="data__category"> Catégorie : ' + data.films[i].category + '</p>' +
     ' </h4><p class="describPara"> Description : ' + data.films[i].description + '</p><p class="authorPara"> Auteur : ' + data.films[i].author + '</p>' + '<p class="url"> Auteur url : </p>' + '<a href="#" class="url__auteur">' + data.films[i].author_url + '</a>' + '<p class="data__year"> Year : ' + data.films[i].year + '</p>' + '<p class="data__rating"> Note : ' + data.films[i].rating + '</p>' + '</div>' + '<span class="video__close">&times;</span>';
   var videoclose = document.querySelector('.video__close');
@@ -40,7 +41,7 @@ var playerFonction = function(i) {
     video.currentTime = 0;
     player.style.display = "none";
   });
-  var menuPlayer = document.querySelector('.menuPlayer');
+  var menuPlayer = document.getElementById('media-control');
   var play = document.querySelector('.control');
   var stop = document.querySelector('.control2');
   var video = document.getElementById("videoPlayer");
@@ -78,21 +79,25 @@ var playerFonction = function(i) {
   var stick3 = document.querySelector('.stick3');
   var stick4 = document.querySelector('.stick4');
   var stick5 = document.querySelector('.stick5');
+  var stick6 = document.querySelector('.stick6');
 
 
   stick1.addEventListener('click', function() {
     videoPlayer.volume = '0.0';
   })
   stick2.addEventListener('click', function() {
-    videoPlayer.volume = '0.3';
+    videoPlayer.volume = '0.15';
   })
   stick3.addEventListener('click', function() {
-    videoPlayer.volume = '0.5';
+    videoPlayer.volume = '0.30';
   })
   stick4.addEventListener('click', function() {
-    videoPlayer.volume = '0.7';
+    videoPlayer.volume = '0.50';
   })
   stick5.addEventListener('click', function() {
+    videoPlayer.volume = '0.75';
+  });
+  stick6.addEventListener('click', function() {
     videoPlayer.volume = '1';
   });
   var update = function(videoPlayer) {
@@ -110,8 +115,8 @@ var playerFonction = function(i) {
   var ihaveall = document.querySelector('.ihaveAll');
   var ihaveall2 = document.querySelector('.ihaveAll2');
   var describContainer = document.querySelector('.describContainer');
-   fullscreenbtn.addEventListener('click', fullScreen);
-   //{
+  fullscreenbtn.addEventListener('click', fullScreen);
+  //{
   //   ihaveall.style.display = "none";
   //   ihaveall2.style.display = "none";
   //   describContainer.style.display = "none";
@@ -146,51 +151,70 @@ var playerFonction = function(i) {
 
 
 
-//   var toggleFullScreen = function(video) {
-//     video.classList.toggle("videoFullScreen");
-//     var docElm = document.documentElement;
-//     if (docElm.requestFullScreen) {
-//       docElm.requestFullScreen();
-//     } else if (docElm.webkitRequestFullScreen) {
-//       docElm.webkitRequestFullScreen();
-//
-//     }
-//   }
-//
-//   function exitFullscreen() {
-//       if(document.exitFullscreen) {
-//           document.exitFullscreen();
-//       } else if(document.mozCancelFullScreen) {
-//           document.mozCancelFullScreen();
-//       } else if(document.webkitExitFullscreen) {
-//           document.webkitExitFullscreen();
-//       }
-//   }
-// }
-function fullScreen(){
+  //   var toggleFullScreen = function(video) {
+  //     video.classList.toggle("videoFullScreen");
+  //     var docElm = document.documentElement;
+  //     if (docElm.requestFullScreen) {
+  //       docElm.requestFullScreen();
+  //     } else if (docElm.webkitRequestFullScreen) {
+  //       docElm.webkitRequestFullScreen();
+  //
+  //     }
+  //   }
+  //
+  //   function exitFullscreen() {
+  //       if(document.exitFullscreen) {
+  //           document.exitFullscreen();
+  //       } else if(document.mozCancelFullScreen) {
+  //           document.mozCancelFullScreen();
+  //       } else if(document.webkitExitFullscreen) {
+  //           document.webkitExitFullscreen();
+  //       }
+  //   }
+  // }
+  function fullScreen() {
 
-  if(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullscreenElement){
-    if(video.exitFullscreen) {
+    if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullscreenElement) {
+      if (video.exitFullscreen) {
         video.exitFullscreen();
-    } else if(video.mozExitFullScreen) {
+      } else if (video.mozExitFullScreen) {
         video.mozCancelFullScreen();
-    } else if(video.webkitExitFullscreen) {
+      } else if (video.webkitExitFullscreen) {
         video.webkitExitFullscreen();
-    }
-
-    video.classList.remove("videoFullScreen");
-  } else{
-    if (video.requestFullScreen) {
-      video.requestFullScreen();
-    } else if (video.webkitRequestFullScreen) {
-      video.webkitRequestFullScreen();
       }
-      else if(video.mozRequestFullScreen) {
-          video.mozCancelFullScreen();
-        }
+
+
+      video.classList.remove("videoFullScreen");
+      menuPlayer.classList.remove('menuPlayerFull');
+      menuPlayer.classList.add('menuPlayer');
+
+
+    } else {
+      if (video.requestFullScreen) {
+        video.requestFullScreen();
+      } else if (video.webkitRequestFullScreen) {
+        video.webkitRequestFullScreen();
+      } else if (video.mozRequestFullScreen) {
+        video.mozCancelFullScreen();
+      }
+
+
+
+      video.addEventListener('mousemove', function () {
+        menuPlayer.style.display="";
+        console.log("kkk");
+
+      })
+
 
       video.classList.add("videoFullScreen");
+      menuPlayer.classList.remove('menuPlayer');
+      menuPlayer.classList.add('menuPlayerFull');
+
+
     }
+
+
   }
 }
 
