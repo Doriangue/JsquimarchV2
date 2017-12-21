@@ -198,11 +198,29 @@ var playerFonction = function(i) {
         video.mozCancelFullScreen();
       }
 
+      var timer;
+      function menuFullscreeen() {
+        timer = setTimeout(function() {
+          menuPlayer.style.display = "none";
+        }, 3000);
+      }
+      function menuStopFullscreeen() {
+        clearTimeout(timer);
+      }
 
 
-      video.addEventListener('mousemove', function () {
-        menuPlayer.style.display="";
-        console.log("kkk");
+
+      video.addEventListener('mousemove', function() {
+        menuPlayer.style.display = "";
+            menuStopFullscreeen();
+        menuFullscreeen();
+
+
+
+
+
+
+
 
       })
 
