@@ -448,15 +448,11 @@ h6:hover {
 
 .h2__footer {
   font-family: HiraKakuStd-W8;
-  font-size: 5rem;
+  font-size: 4rem;
   color: #EBBB43;
   align-self: center;
   justify-self: center;
   /*background-color: red;*/
-  padding: 2rem;
-  padding-right: 9rem;
-  border-right: 2px #EBBB43 solid;
-
 }
 
 .made__footer {
@@ -464,12 +460,12 @@ h6:hover {
   font-size: 2rem;
   align-self: center;
   justify-self: center;
-  padding: 2rem;
-  padding-right: 3rem;
 
   /*background-color: green;*/
   border-right: 2px #EBBB43 solid;
-
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
 }
 
@@ -478,8 +474,9 @@ h6:hover {
   align-self: center;
   justify-self: center;
   font-size: 2rem;
-  padding: 3rem;
-  padding-right: 3rem;
+  padding: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   /*background-color: yellow;*/
   border-right: 2px #EBBB43 solid;
 
@@ -493,12 +490,15 @@ h6:hover {
   /*background-color: blue;*/
   padding: 2rem;
   text-transform: none;
+  border-right: 2px #EBBB43 solid;
+
 }
 
 .footerTitle {
   text-transform: none;
   font-size: 2.2rem;
-
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* ---------- CAROUSEL HEADER ---------- */
