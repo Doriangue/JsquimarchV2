@@ -38,6 +38,7 @@ body {
   display: none;
   position: relative;
   margin-bottom: 5rem;
+  z-index: -1;
 }
 
 .listContainer {
