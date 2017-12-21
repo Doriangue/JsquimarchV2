@@ -408,7 +408,7 @@ h6:hover {
 .button {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 65%;
   width: auto;
   padding: 2rem;
   color: white;
@@ -460,12 +460,10 @@ h6:hover {
 }
 
 .made__footer {
-  /*border: 10px yellow solid;*/
   font-size: 2rem;
   align-self: center;
   justify-self: center;
 
-  /*background-color: green;*/
   border-right: 2px #EBBB43 solid;
   padding-bottom: 2rem;
   padding-left: 2rem;
@@ -481,17 +479,14 @@ h6:hover {
   padding: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  /*background-color: yellow;*/
   border-right: 2px #EBBB43 solid;
 
 }
 
 .h3__footer {
-  /*border: 10px white solid;*/
   align-self: center;
   justify-self: center;
   font-size: 2.5rem;
-  /*background-color: blue;*/
   padding: 2rem;
   text-transform: none;
   border-right: 2px #EBBB43 solid;
@@ -515,9 +510,6 @@ h6:hover {
   margin-top: 15rem;
 }
 
-.slides {
-  /*display: none;*/
-}
 
 .car__prev {
   cursor: pointer;
