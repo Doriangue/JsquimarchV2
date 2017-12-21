@@ -37,6 +37,7 @@ var playerFonction = function(i) {
 
   videoclose.addEventListener('click', function() {
     video.pause();
+    video.currentTime = 0;
     player.style.display = "none";
   });
   var menuPlayer = document.querySelector('.menuPlayer');
