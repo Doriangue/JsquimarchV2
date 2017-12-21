@@ -36,7 +36,7 @@ var playerFonction = function(i) {
   var videoclose = document.querySelector('.video__close');
 
   videoclose.addEventListener('click', function() {
-
+    video.pause();
     player.style.display = "none";
   });
   var menuPlayer = document.querySelector('.menuPlayer');
@@ -109,50 +109,94 @@ var playerFonction = function(i) {
   var ihaveall = document.querySelector('.ihaveAll');
   var ihaveall2 = document.querySelector('.ihaveAll2');
   var describContainer = document.querySelector('.describContainer');
-  fullscreenbtn.addEventListener('click', function() {
-    ihaveall.style.display = "none";
-    ihaveall2.style.display = "none";
-    describContainer.style.display = "none";
-    video.style.height = "100vh";
-    video.style.width = "100vw";
-    player.style.height = "100vh";
-    player.style.width = "100vw";
-    toggleFullScreen(video);
-    videoclose.style.display = 'none';
-    player.style.marginTop = '';
-    menuPlayer.classList.toggle('menuPlayer');
-    menuPlayer.classList.toggle('menuPlayerFull');
+   fullscreenbtn.addEventListener('click', fullScreen);
+   //{
+  //   ihaveall.style.display = "none";
+  //   ihaveall2.style.display = "none";
+  //   describContainer.style.display = "none";
+  //   video.style.height = "100vh";
+  //   video.style.width = "100vw";
+  //   player.style.height = "100vh";
+  //   player.style.width = "100vw";
+  //   videoclose.style.display = 'none';
+  //   player.style.marginTop = '';
+  //   menuPlayer.classList.toggle('menuPlayer');
+  //   menuPlayer.classList.toggle('menuPlayerFull');
+  //   fullScreen()
+  //
+  //
+  //   window.addEventListener("keyup", function(event) {
+  //     if (event.which === 27) {
+  //       ihaveall.style.display = "";
+  //       ihaveall2.style.display = "";
+  //       describContainer.style.display = "";
+  //       video.style.height = "";
+  //       video.style.width = "";
+  //       player.style.height = "";
+  //       player.style.width = "";
+  //       videoclose.style.display = '';
+  //     }
+  //     fullscreenbtn.addEventListener('click', function() {
+  //     fullScreen();
+  //   })
+  //   })
+  // });
 
 
-    window.addEventListener("keyup", function(event) {
-      if (event.which === 27) {
-        ihaveall.style.display = "";
-        ihaveall2.style.display = "";
-        describContainer.style.display = "";
-        video.style.height = "";
-        video.style.width = "";
-        player.style.height = "";
-        player.style.width = "";
-        videoclose.style.display = '';
+
+
+//   var toggleFullScreen = function(video) {
+//     video.classList.toggle("videoFullScreen");
+//     var docElm = document.documentElement;
+//     if (docElm.requestFullScreen) {
+//       docElm.requestFullScreen();
+//     } else if (docElm.webkitRequestFullScreen) {
+//       docElm.webkitRequestFullScreen();
+//
+//     }
+//   }
+//
+//   function exitFullscreen() {
+//       if(document.exitFullscreen) {
+//           document.exitFullscreen();
+//       } else if(document.mozCancelFullScreen) {
+//           document.mozCancelFullScreen();
+//       } else if(document.webkitExitFullscreen) {
+//           document.webkitExitFullscreen();
+//       }
+//   }
+// }
+function fullScreen(){
+
+  if(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullscreenElement){
+    if(video.exitFullscreen) {
+        video.exitFullscreen();
+    } else if(video.mozExitFullScreen) {
+        video.mozCancelFullScreen();
+    } else if(video.webkitExitFullscreen) {
+        video.webkitExitFullscreen();
+    }
+
+    video.classList.remove("videoFullScreen");
+  } else{
+    if (video.requestFullScreen) {
+      video.requestFullScreen();
+    } else if (video.webkitRequestFullScreen) {
+      video.webkitRequestFullScreen();
       }
+      else if(video.mozRequestFullScreen) {
+          video.mozCancelFullScreen();
+        }
 
-    })
-  });
-
-
-
-
-  var toggleFullScreen = function(video) {
-    video.classList.toggle("videoFullScreen");
-    var docElm = document.documentElement;
-    if (docElm.requestFullScreen) {
-      docElm.requestFullScreen();
-    } else if (docElm.webkitRequestFullScreen) {
-      docElm.webkitRequestFullScreen();
-
+      video.classList.add("videoFullScreen");
     }
   }
 }
+
+
+
+
+
 var reductionFonction = function() {
   player.style.display = "none";
 }

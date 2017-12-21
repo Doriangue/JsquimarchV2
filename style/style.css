@@ -25,7 +25,10 @@ body {
 
 .video {
   position: absolute;
+  z-index: 2147483647;
+
 }
+
 
 
 
@@ -44,6 +47,7 @@ body {
 .menuPlayer {
   position: relative;
   top: 55rem;
+  z-index: 2147483647;
 }
 
 .menuPlayerFull {
@@ -51,6 +55,7 @@ body {
   top: 94%;
   left: 50%;
   transform: translateX(-35%);
+  z-index: 2147483647;
 }
 
 .volume {
